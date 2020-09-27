@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node {
    def mvnHome
    stage('Preparation') { // for display purposes.          
@@ -14,3 +15,29 @@ node {
       }
    }
 }
+=======
+pipeline {
+    agent any
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'MAVEN_HOME') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'MAVEN_HOME') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+    }
+}
+>>>>>>> 9f3105c363da605840ae987c46e6dc057748f949
